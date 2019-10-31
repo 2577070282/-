@@ -1,0 +1,76 @@
+<view class="page">
+  <!--黑屏-->
+  <view style="position: absolute; z-index: 2;height: {{height}}px;width:100%;background-color: black;display: {{displayMask}};opacity: 0.95;" bindtap="eventHandle">
+    <view style="margin-top: 500rpx;">
+      <view animation="{{animationData}}" style="height:130rpx;width:750rpx;">
+        <view style="text-align: center;color: white;padding-left:24rpx; font-size: 150%"> 省电！节能！你想过吗？</view>
+        <view class="trans-fadeout" style="text-align: center;color: white;margin-top:50rpx;opacity: {{opacity}}">轻触屏幕，检视用电</view>
+        <image src="../../public/image/touch.png" style="width: 50px; height: 50px; margin-left: 160px;margin-top: 100px;"></image>
+      </view>
+    </view>
+  </view>
+
+  <scroll-view scroll-y='true' scroll-into-view="{{target}}" style="height:{{height}}px;" scroll-with-animation='{{scroll}}'>
+    <!--引导一-->
+    <view id="one" class="classname" bindtouchstart="moveStartTow" bindtouchend="moveEndTow" style="height: {{height}}px;width: 100%;">
+      <view style="height:{{height}}px">
+        <image src="../../public/image/guideone.jpg" style="width:100%;height:100%;"></image>
+        <view class="bottom" bindtap="btnBottomOne">
+          <view class="arrow-bottom" style="border-color: #29aae1;"></view>
+        </view>
+      </view>
+    </view>
+    <!--引导二-->
+    <view id="two" bindtouchstart="moveStartThree" bindtouchend="moveEndThree" class="classname" style="height: {{height}}px;width: 100%;">
+      <view style="height:{{height}}px">
+        <image src="../../public/image/guidetwo.jpg" style="width:100%;height:100%;"></image>
+        <view class="bottom" bindtap="btnBottomTwo">
+          <view class="arrow-bottom" style="border-color: #f6921e;"></view>
+        </view>
+      </view>
+    </view>
+    <!--引导三-->
+    <view id="three" bindtouchstart="moveStartFour" bindtouchend="moveEndFour" class="classname" style="height: {{height}}px;width: 100%;">
+      <image src="../../public/image/guidethree.jpg" style="width:100%;height:100%;"></image>
+      <view class="bottom" bindtap="btnBottomThree">
+        <view class="arrow-bottom" style="border-color: #8bc53f;"></view>
+      </view>
+    </view>
+    <!--首页-->
+    <view id="index" bindtouchstart="moveStartIndex" bindtouchend="moveEndIndex" class="classname" style="height: {{height}}px;width: 100%;">
+    <!--logo-->
+      <view style="height:{{height*0.44}}px;width: 100%; background-color: lightgray;">
+        <image src="../../public/image/logo.jpg" style="height:98%; width: 100%;"></image>
+      </view>
+      <!--feature-->
+      <view style="height:{{height*0.36}}px;width: 100%; background-color: lightgray;">
+        <view style="height: 24%;width: 100%; background-color: green;">
+          <image src="../../public/image/index_title_1.jpg" style="height: 100%;width: 100%;"></image>
+        </view>
+        <view style="height: 25%; width: 100%;display: flex; flex-direction: row;">
+          <view style="height: 100%; width: 50%;" bindtap="jumpHandleDeviceChoose">
+            <image src="../../public/image/index_feature_1.jpg" style="height: 100%; width: 100%;"></image>
+          </view>
+          <view style="height: 100%; width: 50%;" bindtap="jumpHandleTips">
+            <image src="../../public/image/index_feature_2.jpg" style="height: 100%; width: 100%;"></image>
+          </view>
+        </view>
+        <view style="height:24%;width: 100%;">
+          <image src="../../public/image/index_title_2.jpg" style="height: 100%; width: 100%;"></image>
+        </view>
+        <view style="height: 25%; width: 100%;display: flex; flex-direction: row;">
+          <view style="height: 100%; width: 50%;" bindtap="jumpHandleMoneySave">
+            <image src="../../public/image/index_feature_3.jpg" style="height: 100%; width: 100%;"></image>
+          </view>
+          <view style="height: 100%; width: 50%;" bindtap="jumpHandleEnergySave">
+            <image src="../../public/image/index_feature_4.jpg" style="height: 100%; width: 100%;"></image>
+          </view>
+        </view>
+      </view>
+      <!--slogan-->
+      <view style="height:{{height*0.2}}px;width: 100%; background-color: lightgreen;">
+        <image src="../../public/image/slogan.jpg" style="height: 100%; width:100%;"></image>
+      </view>
+    </view>
+  </scroll-view>
+</view>

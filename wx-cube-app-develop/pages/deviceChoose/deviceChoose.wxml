@@ -1,0 +1,139 @@
+<scroll-view style="height: {{height}}px" scroll-into-view="{{target}}" scroll-with-animation='true' scroll-y='{{scroll}}'>
+
+  <!--介绍-->
+  <view id="introduce" class="classname" style="height: {{height*0.82}}px;width:100%;background-color: #eee;" bindtouchstart="moveStartOne" bindtouchend="moveEndOne">
+    <image src="../../public/image/deviceChooseIntroduce.jpg" style="height:98%; width: 100%;" mode="scaleToFill"></image>
+  </view>
+
+  <!--服务流程-->
+  <view id="workFlow" style="height: {{height*0.18}}px;">
+    <view class="pro-title">服务流程</view>
+    <view class='process'>
+      <view class="pro-item" bindtap="stepOneHandle">
+        <image class='item-img' src="../../public/image/rsmj_{{stepOne?'l':'h'}}.png"></image>
+        <text class='{{stepOne?"item-textl":"item-texth"}}'>人数面积</text>
+      </view>
+      <view class="pro-arrow" style='right:10rpx;'></view>
+      <view class="pro-item" bindtap="stepTwoHandle">
+        <image class='item-img' style='width:80rpx;' src="../../public/image/jthx_{{stepTwo?'l':'h'}}.png"></image>
+        <text class='{{stepTwo?"item-textl":"item-texth"}}'>家庭户型</text>
+      </view>
+      <view class="pro-arrow"></view>
+      <view class="pro-item" bindtap="stepThreeHandle">
+        <image class='item-img' src="../../public/image/jtys_{{stepThree?'l':'h'}}.png"></image>
+        <text class='{{stepThree?"item-textl":"item-texth"}}'>家庭预算</text>
+      </view>
+      <view class="pro-arrow"></view>
+      <view class="pro-item">
+        <image class='item-img' src="../../public/image/jl.png"></image>
+        <text class='item-texth'>结论</text>
+      </view>
+    </view>
+  </view>
+
+  <!--人数面积-->
+  <view wx:if="{{stepOne==true}}" style="height:{{height*0.82}}px;width:100%;background-color: #f8f8f8;" >
+    <view style="height: {{height*0.8*0.3}}px; background-color: #eee;">
+
+      <image src="../../public/image/peopleArea.jpg" style="height: 100%; width: 100%;"></image>
+      <view style="height:{{height*0.8*0.1}}px; width: 70%;background-color: white;margin: auto auto; margin-top: -{{height*0.8*0.1*1.2}}px;z-index: 1; color: #2fcabb;display: flex;align-items: center;justify-content: center;border-radius: 5px;position:relative;z-index:1;">人数</view>
+    </view>
+
+    <view style="height: {{height*0.8*0.25}}px;width: 70%; margin: auto auto; background-color: white;margin-top: 5px;display:flex;flex-direction: column;align-items: center;justify-content: center; border-radius: 5px;">
+
+      <view bindtap="choosePlf" style="color:{{people=='小于5'?'#2fcabb':'#999'}};height: 25%;margin:20rpx 0;width: 90%;display: flex;align-items: center;justify-content: center;border-bottom: 1px solid #eee;">1-4人</view>
+     <!--<view style="height: 20%;width: 90%;display: flex;align-items: center;justify-content: center;border-bottom: 1px solid gray;">2人</view>
+
+      <view style="height: 20%;width: 90%;display: flex;align-items: center;justify-content: center;border-bottom: 1px solid gray;">3人</view>
+      <view style="height: 20%;width: 90%;display: flex;align-items: center;justify-content: center;border-bottom: 1px solid gray;">4人</view>-->
+      <view bindtap="choosePgf" style="color:{{people=='大于5'?'#2fcabb':'#ccc'}};justify-content: center;height: 25%;margin:20rpx 0;width: 90%;display: flex;align-items: center;">5人及以上</view>
+    </view>
+
+    <view style="height:{{height*0.8*0.2}}px; width: 70%;background-color: white;margin: auto auto;margin-top:25px;border-radius: 5px;display: flex;flex-direction: column;align-items: center;justify-content: center;">
+
+    <text style="color: #2fcabb;height: 20%;">面积</text>
+    <view style="position:relative;border: 1px solid lightgray;border-radius: 5px;margin-top: 20px;height: 40%;width:80%">
+    <input class='size' type='digit' placeholder-class="sizep" bindinput="homeSize" placeholder="请输入您的房屋面积" style='padding-right:12%'/>
+      <view class="mianji">
+        m<text class='small'>2</text>
+      </view>
+    </view>
+    
+
+    </view>
+
+    <view style="height:{{height*0.8*0.1}}px; width: 70%;background-color: #00bba9;margin: auto auto; margin-top: 25px;border-radius: {{height*0.8*0.1*0.5}}px; display:flex;align-items: center;justify-content: center;color: white;" bindtap="stepTwoHandle">下一步</view>
+  </view>
+  <!--家庭户型-->
+  <view wx:if="{{stepTwo==true}}" style="height:{{height*0.82}}px;width:100%;background-color: #f8f8f8;" >
+
+    <view style="height: {{height*0.8*0.3}}px; background-color: gray;">
+      <image src="../../public/image/homeStyle.jpg" style="height: 100%; width: 100%;"></image>
+      <view style="height:{{height*0.8*0.1}}px; width: 70%;background-color: white;margin: auto auto; margin-top: -{{height*0.8*0.2}}px;z-index: 1; color: #2fcabb;display: flex;align-items: center;justify-content: center;border-radius: 5px;position:relative;z-index:1;">您的户型</view>
+    </view>
+
+
+    <view style="position:relative;z-index:33;height: {{height*0.8*0.6}}px;width: 70%; margin: auto auto; margin-top: {{-height*0.8*0.1*0.6}}px;background-color: white;display:flex;flex-direction: column;align-items: center;justify-content: center; border-radius: 5px;">
+      <view style="height: 50%;width: 90%;display: flex;flex-direction: row;align-items: center;justify-content: center;border-bottom: 1px solid #eee;">
+      <view bindtap="lsyt" style="width:50%;border-right: 1px solid #eee;height:90%;margin-top:8%;display:flex;flex-direction: column; align-items: center;justify-content: center;">
+      <image src="../../public/image/lsyt{{hx=='二室一厅'?'_g':'_b'}}.png" style="height:50px;width:50px;"></image>
+      <text style="color:{{hx=='二室一厅'?'#2fcabb':'#ccc'}}">二室一厅</text>
+      </view>
+      <view bindtap="lset" style="display:flex;flex-direction: column; align-items: center;width:50%;justify-content: center;height: 90%; margin-top: 8%;">
+      <image src="../../public/image/lset{{hx=='二室二厅'?'_g':'_b'}}.png" style="height:50px;width:50px;"></image>
+      <text style="color:{{hx=='二室二厅'?'#2fcabb':'#ccc'}}">二室二厅</text>
+      </view>
+
+      </view>
+      <view style="width: 90%;height: 50%;display: flex;align-items: center;border-bottom: 1px solid #eee;">
+            <view  bindtap="ssyt" style="border-right: 1px solid #eee;height:90%;display:flex;flex-direction: column; align-items: center;justify-content: center;width:50%;">
+      <image src="../../public/image/ssyt{{hx=='三室一厅'?'_g':'_b'}}.png" style="height:50px;width:50px;"></image>
+      <text style="color:{{hx=='三室一厅'?'#2fcabb':'#ccc'}}">三室一厅</text>
+      </view>
+      <view  bindtap="sset" style="display:flex;flex-direction: column; align-items: center;justify-content: center;width:50%;height: 90%;">
+      <image src="../../public/image/sset{{hx=='三室二厅'?'_g':'_b'}}.png" style="height:50px;width:50px;"></image>
+      <text style="color:{{hx=='三室二厅'?'#2fcabb':'#ccc'}}">三室二厅</text>
+      </view>
+      </view>
+       <view style="width: 90%;height: 50%;display: flex;align-items: center;">
+            <view  bindtap="siset" style="border-right: 1px solid #eee;height:90%;display:flex;flex-direction: column; align-items: center;justify-content: center;width:50%;">
+      <image src="../../public/image/siset{{hx=='四室二厅'?'_g':'_b'}}.png" style="height:50px;width:50px;"></image>
+      <text style="color:{{hx=='四室二厅'?'#2fcabb':'#ccc'}}">四室二厅</text>
+      </view>
+      <view  bindtap="wset" style="display:flex;flex-direction: column; align-items: center;justify-content: center;width:50%;height: 90%;">
+      <image src="../../public/image/wset{{hx=='五室二厅'?'_g':'_b'}}.png" style="height:50px;width:50px;"></image>
+      <text style="color:{{hx=='五室二厅'?'#2fcabb':'#ccc'}}">五室二厅</text>
+      </view>
+
+      </view>
+    </view>
+
+    <view style="height:{{height*0.8*0.1}}px; width: 70%;background-color: #00bba9;margin: auto auto; margin-top: 30px;border-radius: {{height*0.8*0.1*0.5}}px; display:flex;align-items: center;justify-content: center;color: white;" bindtap="stepThreeHandle">下一步</view>
+  </view>
+  <!--家庭预算-->
+  <view wx:if="{{stepThree==true}}" style="height:{{height*0.82}}px;width:100%;background-color: #f8f8f8;" >
+    <view style="height: {{height*0.8*0.3}}px; background-color: #eee;">
+
+      <image src="../../public/image/budget.jpg" style="height: 100%; width: 100%;"></image>
+      <view style="height:{{height*0.8*0.1}}px; width: 70%;background-color: white;margin: auto auto; margin-top: -{{height*0.8*0.1*0.6}}px;z-index: 1; color: #2fcabb;display: flex;align-items: center;justify-content: center;border-radius: 5px;position:relative;z-index:1;">您的消费习惯</view>
+    </view>
+
+    <view style="height: {{height*0.8*0.4}}px;width: 70%; margin: auto auto; margin-top: {{height*0.8*0.1*0.4+20}}px;background-color: white;display:flex;flex-direction: column;align-items: center;justify-content: center; border-radius: 5px;">
+
+      <view bindtap="ysJjx" style="height: 50%;width: 90%;display: flex;align-items: center;justify-content: center;border-bottom: 1px solid #eee;">
+      <image src="../../public/image/low{{ys=='经济型'?'_g':''}}.png" style="height: 20px;width: 20px; margin-right: 10px;"></image>
+      <text  style="color:{{ys=='经济型'?'#2fcabb':'#ccc'}}">经济型</text>
+
+      </view>
+
+      <view bindtap="ysGdx" style="height: 50%;width: 90%;display: flex;align-items: center;justify-content: center;">
+      <image src="../../public/image/high{{ys=='高档型'?'_g':''}}.png" style="height: 20px;width: 20px;margin-right: 10px;"></image>
+      <text style="color:{{ys=='高档型'?'#2fcabb':'#ccc'}}">高档型</text>
+
+      </view>
+    </view>
+
+    <view bindtap="toPjd" style="height:{{height*0.8*0.1}}px; width: 70%;background-color: #00bba9;margin: auto auto; margin-top: 30px;border-radius: {{height*0.8*0.1*0.5}}px; display:flex;align-items: center;justify-content: center;color: white;">结论</view>
+  </view>
+
+</scroll-view>

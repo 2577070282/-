@@ -1,0 +1,62 @@
+<view class="page">
+  <view class="yw" style='height:{{height}}px;width:{{width}}px'>
+    <view class="yw-content" wx:if="{{yw=='fgd'}}">
+      <view class="yw-title">
+        “峰谷电”业务
+      </view>
+       <view class="result-content">
+        <view class="result-box">
+          <view class="box-title">
+            峰谷用户数量
+          </view>
+          <view class="box-content">
+            <view class="box-left">
+              <image style='width:{{width*0.35}}px;height:{{width*0.35}}px' src="../../public/image/fgdbl.jpg"></image>
+            </view>
+            <view class="box-right">
+                <view class="right-text">
+                  每月平均省钱<text class='text-big'>22.28%</text>
+                </view>
+                <view class='right-progress-b'>
+                  <view class="right-progress-r"></view>
+                </view>
+                <view class="right-text" style='margin-top:40rpx'>
+                  您所在地区已有
+                </view>
+                <view class="right-text">
+                <text class='text-big'>12%</text>用户开通峰谷电
+                </view>
+            </view>
+          </view>
+        
+        </view>
+        <view class="result-box">
+          <view class="box-title">
+            电能价格对比
+          </view>
+          <view class="" style='padding-bottom:20rpx'>
+            <canvas style=' height:160px;width:100%;display:{{showYhdrk||showFgd?"none":"block"}}' canvas-id="fgdLine"  class="canvas" bindtouchstart="touchHandler"></canvas>
+            <view class="right-text" style="text-align:center;margin-top:20rpx;">
+                谷电价低至<text class='text-big'> 0.288 </text>元/度，谷电时间22：00-07：00
+                </view>
+                <view class="right-text" style="text-align:center; color:#2fcabb;margin-top:10rpx;">
+                  心动不如行动，掌上电力APP已经开通一键办理通道
+                </view>
+          </view>
+        </view>
+       </view>
+    </view>
+    <view class="yw-content" wx:if="{{yw=='yhdrk'}}">
+       <image src="../../public/image/blyw.jpg" style='width:100%;height:100%'></image>
+    </view>
+    
+    <view class="result-btn-content">
+    <view class="result-hbtn">
+      <button class='result-btn' bindtap="back">返回</button>
+    </view>
+    <view class="result-hbtn">
+      <button class='result-btn btn-g' bindtap="wybl">我要办理</button>
+    </view>
+    </view>
+  </view>
+</view>

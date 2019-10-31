@@ -1,0 +1,167 @@
+<view class="page">
+  <view class="result-top">
+    <image class='top-img' src="../../public/image/jl_Result.png"/>结论
+  </view>
+  <view class="dq_content">
+    <view class="dq-title">
+      <view class="title-b">配家电</view>
+      <view class="title-g">推荐结果如下</view>
+    </view>
+ 
+    <view class="pjd-list">
+      <view class="pjd-item">
+        <image class='item-img-kt' src="../../public/image/kt_g.png"></image>
+        <text class='item-txt'>空调</text>
+         <view class="item-detail"  wx:if='{{iszykt}}'>
+          <view class="detail-line">
+              中央空调：<text class='color-b'> {{zykt_ps}}匹 </text>
+          </view>
+        </view>
+        <view class="item-detail"  wx:else>
+          <view class="detail-line">
+              客厅：一台<text class='color-b'> {{ lskt_ps}}匹 </text>立式空调
+          </view>
+          <view class="detail-line">
+              大房间：一台<text class='color-b'> {{dfjgskt_ps}}匹 </text>挂式空调
+          </view>
+          <view class="detail-line">
+              小房间：<text class='color-b'> {{xfjgskt_ps}}匹 </text>挂式空调
+          </view>
+        </view>
+      </view> 
+      <view class="pjd-item">
+        <image class='item-img-rsq' src="../../public/image/rsq_g.png"></image>
+        <text class='item-txt'>热水器</text>
+        <view class="item-detail">
+          <view class="detail-line">
+              <text class='color-b'> {{rsqRl}} </text>，功率<text class='color-b'> {{rsqGl}}W</text>
+          </view>
+        </view>
+      </view>
+      <view class="pjd-item">
+        <image class='item-img-dsj' src="../../public/image/dsj_g.png"></image>
+        <text class='item-txt'>电视机</text>
+        <view class="item-detail">
+           <view class="detail-line">
+              客厅：一台<text class='color-b'> {{size>110?'50寸':'小于50寸'}} </text>电视，功率<text class='color-b'> {{dsjGl}}W</text>
+          </view>
+          <view class="detail-line"  wx:if='{{ys=="高档型"}}'>
+              卧室：{{shi}}台30寸，功率<text class='color-b'> {{dsjGl}}W</text>
+          </view>
+        </view>
+      </view>
+      <view class="pjd-item" wx:if='{{isdown}}'>
+        <image class='item-img-xyj' src="../../public/image/xyj_g.png"></image>
+        <text class='item-txt'>洗衣机</text>
+        <view class="item-detail">
+          <view class="detail-line">
+              容量<text class='color-b'> {{xyjKg}}公斤 </text>，功率<text class='color-b'> {{xyjGl}}W</text>
+          </view>
+        </view>
+      </view>
+      <view class="pjd-item" wx:if='{{isdown}}'>
+        <image class='item-img-dbx' src="../../public/image/dbx_g.png"></image>
+        <text class='item-txt'>电冰箱</text>
+        <view class="item-detail">
+          <view class="detail-line">
+              <text class='color-b'>{{size>89&&ys=="高档型"?'双开门':'普通'}}</text>冰箱：<text class='color-b'> {{dbxRl}}L </text>，功率<text class='color-b'> {{dbxGl}}W</text>
+          </view>
+        </view>
+      </view>
+      <view class="pjd-item" wx:if='{{isdown}}'>
+        <image class='item-img-dfb' src="../../public/image/dfb_g.png"></image>
+        <text class='item-txt'>电饭煲</text>
+        <view class="item-detail">
+          <view class="detail-line">
+              功率<text class='color-b'> {{dfbGl}}W</text>
+          </view>
+        </view>
+      </view>
+      <view class="pjd-item" wx:if='{{isdown}}'>
+        <image class='item-img-dcl' src="../../public/image/dcl_g.png"></image>
+        <text class='item-txt'>电磁炉</text>
+        <view class="item-detail">
+          <view class="detail-line">
+              功率<text class='color-b'>{{dclGl}}W</text>
+          </view>
+        </view>
+      </view>
+      <view class="pjd-item" wx:if='{{isdown}}'>
+        <image class='item-img-xyj' src="../../public/image/xyj_g.png"></image>
+        <text class='item-txt'>洗衣机</text>
+        <view class="item-detail">
+          <view class="detail-line">
+              功率<text class='color-b'> {{xwjGl}}W</text>
+          </view>
+        </view>
+      </view>
+      <view class="pjd-item" wx:if='{{isdown}}'>
+        <image class='item-img-wbl' src="../../public/image/wbl_g.png"></image>
+        <text class='item-txt'>微波炉</text>
+        <view class="item-detail">
+          <view class="detail-line">
+              功率<text class='color-b'> {{wblGl}}W</text>
+          </view>
+        </view>
+      </view>
+      <view class="pjd-item" wx:if='{{isdown}}'>
+        <image class='item-img-yyj' src="../../public/image/yyj_g.png"></image>
+        <text class='item-txt'>油烟机</text>
+        <view class="item-detail">
+          <view class="detail-line">
+              功率<text class='color-b'> {{yyjGl}}W</text>
+          </view>
+        </view>
+      </view>
+      <view class="pjd-item" wx:if='{{isdown}}'>
+        <image class='item-img-xdg' src="../../public/image/xdg_g.png"></image>
+        <text class='item-txt'>消毒柜</text>
+        <view class="item-detail">
+          <view class="detail-line">
+              功率<text class='color-b'> {{xdgGl}}W</text>
+          </view>
+        </view>
+      </view>
+      <view class="pjd-item" wx:if='{{isdown}}'>
+        <image class='item-img-kx' src="../../public/image/kx_g.png"></image>
+        <text class='item-txt'>烤箱/蒸箱</text>
+        <view class="item-detail">
+          <view class="detail-line">
+              功率<text class='color-b'> {{kxGl}}W</text>
+          </view>
+        </view>
+      </view>
+      <view class="pjd-item"   wx:if='{{ys=="高档型"&&isdown}}'>
+        <image class='item-img-dcn' src="../../public/image/dcn_g.png"></image>
+        <text class='item-txt'>电采暖</text>
+        <view class="item-detail">
+          <view class="detail-line">
+              功率<text class='color-b'> {{dnqGl}}W</text>每平米
+          </view>
+        </view>
+      </view>
+      <view class="pjd-item"   bindtap="toDown">
+          <view class="arraw"  style='transform: rotate({{isdown?"145deg":"-35deg"}}) skewX(20deg);'>
+          </view>
+      </view>
+    </view>
+   </view>
+   <view class="tjdf">
+      <view class="tjjd-title">推荐家电年平均电费（元）:</view>
+      <view class="tjjd-num">{{kt_fax+rsq_fax+dsj_fax+xyj_fax+dbx_fax+dfb_fax+dcl_fax+xwj_fax+wbl_fax+yyj_fax+xdg_fax+kx_fax+dnq_fax-500}}~{{kt_fax+rsq_fax+dsj_fax+xyj_fax+dbx_fax+dfb_fax+dcl_fax+xwj_fax+wbl_fax+yyj_fax+xdg_fax+kx_fax+dnq_fax+500}}</view>
+   </view>
+   <view class="tjdf">
+      <view class="tjjd-title">耗能排行榜:</view>
+      <view class="pjd-list">
+         <view class="pjd-item"  wx:for="{{dqArr}}" wx:for-index="idx" wx:if='{{idx<3}}' wx:for-item="dqItem" wx:key='a'>
+          <text class='item-txt item-num-{{idx==0?"r":idx==1?"o":"b"}}'>{{idx+1}}</text>
+          <image class='item-img-{{dqItem.cl}}' src="../../public/image/{{dqItem.cl}}_{{idx==0?'r':idx==1?'o':'b'}}.png"></image>
+          <text class='item-txt item-txt-{{idx==0?"r":idx==1?"o":"b"}}'>{{dqItem.name}}</text>
+        </view>
+      </view>
+   </view>
+   <view class="" style='padding:60rpx 0rpx;'>
+  
+  <button class='result-btn' bindtap="back">返回主页</button>
+  </view>
+</view>

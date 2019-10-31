@@ -1,0 +1,48 @@
+<view class="page">
+  <view class="result-top">
+    <image class='top-img' src="../../public/image/jl_Result.png"/>结论
+  </view>
+  <view class="" style='height:{{height-100}}px;width:{{width}}px'>
+    <view class="result-list">
+      <view class="result-item">
+        <image class='item-img'  src="../../public/image/hand.png"></image>
+        <text class='list-top-title color-b'>恭喜您！{{isQcdf?'电费低于本地区'+percent+'用户':''}}</text>
+        <text class='list-top-title color-g'>{{shFgd||personNum!=='小于5'?'您还有省钱空间':'您的用电习惯良好，请继续保持'}}</text>
+      </view>
+      <view class="result-item">
+        <view class="item-tip">{{!shFgd?'您不适合':''}}办理“峰谷电”业务</view>
+        <view class="item-content" wx:if="{{isQcdf&&shFgd}}">
+          <view class="item-num">{{sdf}}元</view>
+          <view class="item-txt">年最多可省</view>
+          
+        </view>
+        <view class="item-content" wx:if="{{!isQcdf&&shFgd}}">
+           <view class="item-num">22.28%</view>
+          <view class="item-txt">已办理用户平均可省钱</view>
+          
+        </view>
+        <view class="item-btns">
+          <view class="item-btn" bindtap="toJsFgd">业务介绍</view>
+          <view class="item-btn"  bindtap="toBlFgd">我要办理</view>
+        </view>
+      </view>
+      <view class="result-item" wx:if="{{personNum!=='小于5'}}">
+        <view class="item-tip">办理“一户多人口”业务</view>
+        <view class="item-content">
+          <view class="item-num">360元</view>
+          <view class="item-txt">年最多可省</view>
+          
+        </view>
+        <view class="item-btns">
+          <view class="item-btn" bindtap="toJsYhdrk">业务介绍</view>
+          <view class="item-btn"  bindtap="toBlYhdrk">我要办理</view>
+        </view>
+      </view>
+    </view>
+    <view class="result-btn-content">
+      <button class='result-btn' bindtap="back">返回主页</button>
+    </view>
+  </view>
+ 
+</view>
+

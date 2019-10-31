@@ -1,0 +1,53 @@
+<view class="page">
+  <view class="yw" style='height:{{height}}px;width:{{width}}px'>
+    <view class="yw-content" wx:if="{{yw=='fgd'}}">
+      <view class="yw-title">
+        “峰谷电”业务
+      </view>
+      <view class="yw-txt">
+        根据物价局经济贸易委员会电力工业局联合发文的文件精神，居民生活用电<text class='color-g'>峰谷电</text>，是目前在城市居民当中开展试点的一种新<text class='color-g'>电价</text>类别。它是将一天24小时划分成两个时间段，把<text class='color-g'>8：00—22：00</text>共14小时称为峰段，执行峰电价为<text class='color-g'>0.568元/kwh</text>；<text class='color-g'>22：00—次日8：00</text>共10个小时称为谷段，执行谷电价为<text class='color-g'>0.288元/kwh</text>
+      </view>
+      <view class="yw-txt">
+      客户不能盲目选择执行峰谷电价，只有谷电时段用电的比例达到和超过家庭总用电量的<text class='color-g'>11%</text>时，申请使用峰谷电才更省钱。
+      </view>
+    </view>
+    <view class="yw-content" wx:if="{{yw=='yhdrk'}}">
+       <view class="yw-title">
+        “一户多人口”业务
+      </view>
+      <view class="yw-txt">
+        浙江电网供电区域内实行“一户一表”的城乡居民用户，户籍人口为<text class='color-g'>5人及以上</text>的家庭，每户每月增加<text class='color-g'>100度</text>的阶梯电量基数。
+      </view>
+      <view class="yw-txt color-g" style='font-weight:bold;'>
+        “一户多人口”的认定依据是什么？
+      </view>
+       <view class="yw-txt">
+        居民家庭人口数量以公安部门颁发的<text class='color-g'>“户口簿”</text>为认定依据
+      </view>
+      <view class="yw-txt color-g" style='font-weight:bold;'>
+        如何申请“一户多人口”电价？
+      </view>
+      <view class="yw-txt">
+        符合条件的居民家庭，由用电客户<text class='color-g'>房屋产权所有人</text>向<text class='color-g'>供电公司</text>提出增加“一户多人口”阶梯电量基数的业务申请。办理时需提供以下资料：
+      </view>
+      <view class="yw-txt">
+         1) 近期电费通知单或者电费发票
+      </view>
+     <view class="yw-txt">
+         2) 房产证明原件；
+      </view>
+      <view class="yw-txt">
+         3) 户口簿原件(户口簿上所载居住地址需与房产证明地址一致)；
+      </view>
+      <view class="yw-txt">
+         4) 户主、经办人员身份证原件；
+      </view>
+      <view class="yw-txt">
+         5) 根据需要，提供政府相关部门及军队师(旅)级以上单位政治机关出具的证明材料。
+      </view>
+    </view>
+    <view class="result-btn-content">
+      <button class='result-btn' bindtap="back">返回</button>
+    </view>
+  </view>
+</view>

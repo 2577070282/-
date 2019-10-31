@@ -1,0 +1,37 @@
+<view class="page" style='overflow:hidden;width:{{width}}px;height:{{height}}px;position:relative;'>
+  <view animation="{{animationData}}" style='height:{{2*height}}px;width:{{width}}px;transform:translateY({{top+distance}}px);'>
+    <view class="sub-page" style='height:{{height}}px;' bindtouchstart="pageoneStart" bindtouchmove="pageoneMove" bindtouchend="pageoneEnd">
+      <view class="result-top">
+        <image class='top-img' src="../../public/image/jl_Result.png"/>结论
+      </view>
+      <view class="page-content" style='height:{{height-100}}px;'>
+        <view class="canvas-box">
+          <canvas disable-scroll='true' canvas-id="pieCanvas" class="canvas" style="height:100%;width:100%;" bindtouchstart="touchHandler">
+          </canvas>
+        </view>
+        <view class="page-line page-gray">
+          节能效益评估显示10年间
+        </view>
+        <view class="page-line page-gray">
+          可节省<text class='color-g'> {{saveNum}} </text>元
+        </view>
+        <view class="page-line txt-b">
+          {{saveNum<=1000?"可以购置一台洗衣机":saveNum<=5000?"可以购置一台智能手机":saveNum<=10000?"可以购置一台高性能电脑":saveNum<=50000?"可以出国旅游一趟":"可以购置一辆小汽车"}}
+        </view>
+        <view class="page-bottom" bindtap="moveTow">
+          <view class="arraw" >
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="sub-page" style='height:{{height}}px;' bindtouchstart="pagetowStart" bindtouchmove="pagetowMove" bindtouchend="pagetowEnd">
+      <view class="tree-content">
+        <image src="../../public/image/tree.jpg" style='width:100%;height:100%;'></image>
+        <view class="page-line txt-b posi">相当于种了{{treeNum}}颗树</view>
+      </view>
+      <view class="result-btn-content">
+        <button class='result-btn' bindtap="back">返回主页</button>
+      </view>
+    </view>
+  </view>
+</view>

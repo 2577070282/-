@@ -1,0 +1,20 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/deviceChoose/deviceChoose",
+    "pages/moneySave/moneySave",
+    "pages/energySave/energySave",
+    "pages/pjdResult/pjdResult",
+    "pages/sdfResult/sdfResult",
+    "pages/jnyResult/jnyResult",
+    "pages/ywjs/ywjs",
+    "pages/blyw/blyw"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "white",
+    "navigationBarTitleText": "demo",
+    "navigationBarTextStyle": "black",
+    "disableScroll": "true"
+  }
+}

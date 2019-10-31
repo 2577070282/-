@@ -7,6 +7,8 @@
 
 2、Small_program_demo 这是一套相当于抽奖小程序。
 
+3、wx-cube-app-develop 这是一款家居智能计算小程序。
+
 
 
 如有其他版权侵权，联系邮箱 gtcarry999@163.com 。

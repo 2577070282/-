@@ -1,0 +1,43 @@
+.result-btn-content{
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  height:12%;
+  align-items: center;
+}
+.result-btn{
+  width:80%;
+  margin:auto;
+  border-radius: 80rpx;
+  line-height: 80rpx;
+  color:#fff;
+  background-color:#00bdac;
+}
+.yw-content{
+  background-color:#fff;
+  height:87%;
+  padding:0rpx 28rpx;
+}
+.yw{
+  width: 100%;
+  height: 100%;
+}
+.yw-title{
+  line-height: 100rpx;
+  font-size:50rpx;
+  font-weight: bold;
+  color:#2fcabb;
+  text-align: center;
+}
+.yw-txt{
+  text-indent: 56rpx;
+  font-size:28rpx;
+  color:#c9c9c9;
+  line-height:50rpx;
+}
+.color-g{
+  color:#2fcabb;
+}
+page{
+  font-family: '微软雅黑';
+}

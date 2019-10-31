@@ -1,0 +1,240 @@
+<scroll-view style="height: {{height}}px" scroll-into-view="{{target}}" scroll-with-animation='true' scroll-y='{{scroll}}'>
+
+  <!--介绍-->
+  <view id="introduce" class="classname" style="height: {{height*0.82}}px;width:100%;background-color: #eee;" bindtouchstart="moveStartOne" bindtouchend="moveEndOne">
+    <image src="../../public/image/introduce_energy.jpg" style="height:98%; width: 100%;" mode="scaleToFill"></image>
+  </view>
+
+  <!--服务流程-->
+  <view id="workFlow" style="height: {{height*0.18}}px;">
+    <view class="pro-title">服务流程</view>
+    <view class='process'>
+      <view class="pro-item" bindtap="stepHandle">
+        <image class='item-img' src="../../public/image/jtyd_{{(step||stepOne)&&!stepTwo&&!stepThree?'l':'h'}}.png"></image>
+        <text class='{{(step||stepOne)&&!stepTwo&&!stepThree?"item-textl":"item-texth"}}'>家庭用电</text>
+      </view>
+      <view class="pro-arrow" style='right:10rpx;'></view>
+      <view class="pro-item" bindtap="stepTwoHandle">
+        <image class='item-img' style='width:80rpx;' src="../../public/image/jtyc_{{stepTwo?'l':'h'}}.png"></image>
+        <text class='{{stepTwo?"item-textl":"item-texth"}}'>家庭用车</text>
+      </view>
+      <view class="pro-arrow"></view>
+      <view class="pro-item" bindtap="stepThreeHandle">
+        <image class='item-img' src="../../public/image/jtyq_{{stepThree?'l':'h'}}.png"></image>
+        <text class='{{stepThree?"item-textl":"item-texth"}}'>家庭用气</text>
+      </view>
+      <view class="pro-arrow"></view>
+      <view class="pro-item">
+        <image class='item-img' src="../../public/image/jl.png"></image>
+        <text class='item-texth'>结论</text>
+      </view>
+    </view>
+  </view>
+  <!--户型-->
+
+  <view wx:if="{{step==true}}" style="height:{{height*0.82}}px;width:100%;background-color: #f8f8f8;">
+
+    <view style="height: {{height*0.8*0.3}}px; background-color: gray;">
+      <image src="../../public/image/homeStyle.jpg" style="height: 100%; width: 100%;"></image>
+      <view style="height:{{height*0.8*0.1}}px; width: 70%;background-color: white;margin: auto auto; margin-top: -{{height*0.8*0.2}}px;z-index: 1; color: #2fcabb;display: flex;align-items: center;justify-content: center;border-radius: 5px;position:relative;z-index:1;">您的户型</view>
+    </view>
+
+
+    <view style="position:relative;z-index:33;height: {{height*0.8*0.6}}px;width: 70%; margin: auto auto; margin-top: {{-height*0.8*0.1*0.6}}px;background-color: white;display:flex;flex-direction: column;align-items: center;justify-content: center; border-radius: 5px;">
+      <view style="height: 50%;width: 90%;display: flex;flex-direction: row;align-items: center;justify-content: center;border-bottom: 1px solid #eee;">
+        <view bindtap="lsyt" style="width:50%;border-right: 1px solid #eee;height:80%;display:flex;flex-direction: column; align-items: center;justify-content: center;">
+          <image src="../../public/image/lsyt{{hx=='二室一厅'?'_g':'_b'}}.png" style="height:50px;width:50px;"></image>
+          <text style="color:{{hx=='二室一厅'?'#2fcabb':'#ccc'}};font-size: 25rpx;margin-top:10rpx;">二室一厅</text>
+        </view>
+        <view bindtap="lset" style="display:flex;flex-direction: column; align-items: center;width:50%;justify-content: center;height: 80%;">
+          <image src="../../public/image/lset{{hx=='二室二厅'?'_g':'_b'}}.png" style="height:50px;width:50px;"></image>
+          <text style="color:{{hx=='二室二厅'?'#2fcabb':'#ccc'}};font-size: 25rpx;margin-top:10rpx;">二室二厅</text>
+        </view>
+
+      </view>
+      <view style="width: 90%;height: 50%;display: flex;align-items: center;border-bottom: 1px solid #eee;">
+        <view bindtap="ssyt" style="border-right: 1px solid #eee;height:90%;display:flex;flex-direction: column; align-items: center;justify-content: center;width:50%;">
+          <image src="../../public/image/ssyt{{hx=='三室一厅'?'_g':'_b'}}.png" style="height:50px;width:50px;"></image>
+          <text style="color:{{hx=='三室一厅'?'#2fcabb':'#ccc'}};font-size: 25rpx;margin-top:10rpx;">三室一厅</text>
+        </view>
+        <view bindtap="sset" style="display:flex;flex-direction: column; align-items: center;justify-content: center;width:50%;height: 90%;">
+          <image src="../../public/image/sset{{hx=='三室二厅'?'_g':'_b'}}.png" style="height:50px;width:50px;"></image>
+          <text style="color:{{hx=='三室二厅'?'#2fcabb':'#ccc'}};font-size: 25rpx;margin-top:10rpx;">三室二厅</text>
+        </view>
+      </view>
+      <view style="width: 90%;height: 50%;display: flex;align-items: center;">
+        <view bindtap="siset" style="border-right: 1px solid #eee;height:80%;display:flex;flex-direction: column; align-items: center;justify-content: center;width:50%;">
+          <image src="../../public/image/siset{{hx=='四室二厅'?'_g':'_b'}}.png" style="height:50px;width:50px;"></image>
+          <text style="color:{{hx=='四室二厅'?'#2fcabb':'#ccc'}};font-size: 25rpx;margin-top:10rpx;">四室二厅</text>
+        </view>
+        <view bindtap="wset" style="display:flex;flex-direction: column; align-items: center;justify-content: center;width:50%;height: 80%;">
+          <image src="../../public/image/wset{{hx=='五室二厅'?'_g':'_b'}}.png" style="height:50px;width:50px;"></image>
+          <text style="color:{{hx=='五室二厅'?'#2fcabb':'#ccc'}};font-size: 25rpx;margin-top:10rpx;">五室二厅</text>
+        </view>
+      </view>
+              <view style="width:80%;color: lightgray;font-size: 20rpx;text-align: center;margin:auto auto;">*计算空调能耗需要此参数</view>
+    </view>
+    <view style="height:{{height*0.8*0.1}}px; width: 70%;background-color: #00bba9;margin: auto auto; margin-top: 30px;border-radius: {{height*0.8*0.1*0.5}}px; display:flex;align-items: center;justify-content: center;color: white;" bindtap="stepOneHandle">下一步</view>
+  </view>
+
+  <!--家庭用电空调-->
+  <view wx:if="{{stepOneAC==true}}" style="height:{{height*0.82}}px;width:100%;background-color: #f8f8f8;">
+    <view style="height: {{height*0.8*0.3}}px; background-color: #eee;">
+
+      <image src="../../public/image/energy_electric.jpg" style="height: 100%; width: 100%;"></image>
+      <view style="height:{{height*0.8*0.1}}px; width: 80%;background-color: white;margin: auto auto; margin-top: -{{height*0.8*0.1*1.2}}px;z-index: 1; color: #2fcabb;display: flex;align-items: center;justify-content: center;border-radius: 5px;position:relative;z-index:1;">家庭空调设备情况</view>
+    </view>
+
+    <view style="height: {{height*0.8*0.5}}px;width: 80%; margin: auto auto; background-color: white;margin-top: 5px;display:flex;flex-direction: column;align-items: center;justify-content: center; border-radius: 5px;">
+
+      <view  style="height: 33.3%;margin:5rpx 0;width: 90%;display: flex;flex-direction: column;border-bottom: 1px solid #eee;">
+        <text style="color:#2fcabb;">匹数</text>
+        <view style="display:flex;flex-direction: row;align-items: center;justify-content: center;width: 100%;margin: auto auto;">
+          <text bindtap="ktps_1" style="text-align:center;width:20%;color: {{ktps==1?'#2fcabb':'#a8a8a8'}};">1</text>
+          <text bindtap="ktps_15" style="text-align:center;width:25%;color: {{ktps==1.5?'#2fcabb':'#a8a8a8'}};">1.5</text>
+          <text bindtap="ktps_2" style="text-align:center;width:20%;color: {{ktps==2?'#2fcabb':'#a8a8a8'}};">2</text>
+          <text bindtap="ktps_3" style="text-align:center;width:20%;color: {{ktps==3?'#2fcabb':'#a8a8a8'}};">3</text>
+        </view>
+        <view style="width:80%;color: lightgray;font-size: 20rpx;text-align: center;margin:auto auto;">*计算空调能耗需要此参数</view>
+      </view>
+
+
+
+
+      <view style="color:{{people=='大于5'?'#2fcabb':'#ccc'}};height: 33.3%;margin:5rpx 0;width: 90%;border-bottom: 1px solid #eee;">
+        <text style="color:#2fcabb;">能效等级</text>
+        <view style="width: 100%;display:flex;flex-direction: row;align-items: center;justify-content: center;width: 90%;margin: auto auto;">
+          <text bindtap="ktdj_1" style="text-align:center;width:25%;color: {{ktdj=='一级'?'#2fcabb':'#a8a8a8'}};">一级</text>
+          <text bindtap="ktdj_2" style="text-align:center;width:25%;color: {{ktdj=='二级'?'#2fcabb':'#a8a8a8'}};">二级</text>
+          <text bindtap="ktdj_3" style="text-align:center;width:25%;color: {{ktdj=='三级'?'#2fcabb':'#a8a8a8'}};">三级</text>
+          <text bindtap="ktdj_4" style="text-align:center;width:25%;color: {{ktdj=='四级'?'#2fcabb':'#a8a8a8'}};">四级</text>
+          <text bindtap="ktdj_5" style="text-align:center;width:25%;color: {{ktdj=='五级'?'#2fcabb':'#a8a8a8'}};">五级</text>
+        </view>
+        <view style="width:80%;color: lightgray;font-size: 20rpx;text-align: center;margin:auto auto;">*计算空调能耗需要此参数</view>
+      </view>
+
+      <view style="height: 33.3%;margin:5rpx 0;width: 90%;">
+        <text style="color:#2fcabb;">购买年份</text>
+        <view style="width: 100%;width: 90%;margin: auto auto;display:flex;flex-direction: row;align-items: center;justify-content: center;">
+          <text bindtap="ktnf_2008" style="text-align:center;width:25%;color:{{ktnf=='2008'?'#2fcabb':'#a8a8a8'}};">2008</text>
+          <text bindtap="ktnf_2009" style="text-align:center;width:25%;color:{{ktnf=='2009'?'#2fcabb':'#a8a8a8'}};">2009</text>
+          <text bindtap="ktnf_2010" style="text-align:center;width:25%;color:{{ktnf=='2010'?'#2fcabb':'#a8a8a8'}};">2010</text>
+          <text bindtap="ktnf_2011" style="text-align:center;width:25%;color:{{ktnf=='2011'?'#2fcabb':'#a8a8a8'}};">2011</text>
+          <text bindtap="ktnf_2012" style="text-align:center;width:25%;color:{{ktnf=='2012'?'#2fcabb':'#a8a8a8'}};">2012</text>
+        </view>
+        <view style="width:80%;color: lightgray;font-size: 20rpx;text-align: center;margin:auto auto;">*计算空调能耗需要此参数</view>
+
+      </view>
+    </view>
+
+
+    <view style="height:{{height*0.8*0.1}}px; width: 80%;background-color: #00bba9;margin: auto auto; margin-top: 25px;border-radius: {{height*0.8*0.1*0.5}}px; display:flex;align-items: center;justify-content: center;color: white;" bindtap="stepOneShowerHandle">下一步</view>
+  </view>
+  <!--电热水器-->
+  <view wx:if="{{stepOneShower==true}}" style="height:{{height*0.82}}px;width:100%;background-color: #f8f8f8;">
+    <view style="height: {{height*0.8*0.3}}px; background-color: #eee;">
+
+      <image src="../../public/image/energy_electric.jpg" style="height: 100%; width: 100%;"></image>
+      <view style="height:{{height*0.8*0.1}}px; width: 80%;background-color: white;margin: auto auto; margin-top: -{{height*0.8*0.1*1.2}}px;z-index: 1; color: #2fcabb;display: flex;align-items: center;justify-content: center;border-radius: 5px;position:relative;z-index:1;">家庭电热水器设备信息</view>
+    </view>
+
+    <view style="height: {{height*0.8*0.5}}px;width: 80%; margin: auto auto; background-color: white;margin-top: 5px;display:flex;flex-direction: column;align-items: center;justify-content: center; border-radius: 5px;">
+
+      <view style="height: 33.3%;margin:5rpx 0;width: 90%;display: flex;flex-direction: column;border-bottom: 1px solid #eee;">
+        <text style="color:#2fcabb;">功率</text>
+        <view style="display:flex;flex-direction: row;align-items: center;justify-content: center;width: 100%;margin: auto auto;">
+          <text bindtap="rsqgl_500" style="text-align:center;width:20%;color: {{rsqgl=='500'?'#2fcabb':'#a8a8a8'}};">500</text>
+          <text bindtap="rsqgl_1000" style="text-align:center;width:25%;color: {{rsqgl=='1000'?'#2fcabb':'#a8a8a8'}};">1000</text>
+          <text bindtap="rsqgl_1250" style="text-align:center;width:20%;color: {{rsqgl=='1250'?'#2fcabb':'#a8a8a8'}};">1250</text>
+          <text bindtap="rsqgl_1500" style="text-align:center;width:20%;color: {{rsqgl=='1500'?'#2fcabb':'#a8a8a8'}};">1500</text>
+          <text bindtap="rsqgl_2000" style="text-align:center;width:20%;color: {{rsqgl=='2000'?'#2fcabb':'#a8a8a8'}};">2000</text>
+        </view>
+        <view style="width:80%;color: lightgray;font-size: 20rpx;text-align: center;margin:auto auto;">*计算电热水器能耗需要此参数</view>
+      </view>
+
+
+
+
+      <view  style="height: 33.3%;margin:5rpx 0;width: 90%;border-bottom: 1px solid #eee;">
+        <text style="color:#2fcabb;">能效等级</text>
+        <view style="width: 100%;display:flex;flex-direction: row;align-items: center;justify-content: center;width: 90%;margin: auto auto;">
+          <text bindtap="rsqdj_1" style="text-align:center;width:25%;color: {{rsqdj=='一级'?'#2fcabb':'#a8a8a8'}};">一级</text>
+          <text bindtap="rsqdj_2" style="text-align:center;width:25%;color: {{rsqdj=='二级'?'#2fcabb':'#a8a8a8'}};">二级</text>
+          <text bindtap="rsqdj_3" style="text-align:center;width:25%;color: {{rsqdj=='三级'?'#2fcabb':'#a8a8a8'}};">三级</text>
+          <text bindtap="rsqdj_4" style="text-align:center;width:25%;color: {{rsqdj=='四级'?'#2fcabb':'#a8a8a8'}};">四级</text>
+          <text bindtap="rsqdj_5" style="text-align:center;width:25%;color: {{rsqdj=='五级'?'#2fcabb':'#a8a8a8'}};">五级</text>
+        
+        </view>
+        <view style="width:80%;color: lightgray;font-size: 20rpx;text-align: center;margin:auto auto;">*计算电热水器能耗需要此参数</view>
+      </view>
+
+      <view  style="height: 33.3%;margin:5rpx 0;width: 90%;">
+        <text style="color:#2fcabb;">购买年份</text>
+        <view style="width: 100%;width: 90%;margin: auto auto;display:flex;flex-direction: row;align-items: center;justify-content: center;">
+           <text bindtap="rsqnf_2008" style="text-align:center;width:25%;color:{{rsqnf=='2008'?'#2fcabb':'#a8a8a8'}};">2008</text>
+          <text bindtap="rsqnf_2009" style="text-align:center;width:25%;color:{{rsqnf=='2009'?'#2fcabb':'#a8a8a8'}};">2009</text>
+          <text bindtap="rsqnf_2010" style="text-align:center;width:25%;color:{{rsqnf=='2010'?'#2fcabb':'#a8a8a8'}};">2010</text>
+          <text bindtap="rsqnf_2011" style="text-align:center;width:25%;color:{{rsqnf=='2011'?'#2fcabb':'#a8a8a8'}};">2011</text>
+          <text bindtap="rsqnf_2012" style="text-align:center;width:25%;color:{{rsqnf=='2012'?'#2fcabb':'#a8a8a8'}};">2012</text>
+        </view>
+        <view style="width:80%;color: lightgray;font-size: 20rpx;text-align: center;margin:auto auto;">*计算电热水器能耗需要此参数</view>
+
+      </view>
+    </view>
+
+
+    <view style="height:{{height*0.8*0.1}}px; width: 80%;background-color: #00bba9;margin: auto auto; margin-top: 25px;border-radius: {{height*0.8*0.1*0.5}}px; display:flex;align-items: center;justify-content: center;color: white;" bindtap="stepTwoHandle">下一步</view>
+  </view>
+
+  <!--家庭用车-->
+  <view wx:if="{{stepTwo==true}}" style="height:{{height*0.82}}px;width:100%;background-color: #f8f8f8;">
+    <view style="height: {{height*0.8*0.3}}px; background-color: #eee;">
+
+      <image src="../../public/image/energy_car.jpg" style="height: 100%; width: 100%;"></image>
+      <view style="height:{{height*0.8*0.1}}px; width: 70%;background-color: white;margin: auto auto; margin-top: -{{height*0.8*0.1*1.2}}px;z-index: 1; color: #2fcabb;display: flex;align-items: center;justify-content: center;border-radius: 5px;position:relative;z-index:1;">家庭用车信息</view>
+    </view>
+
+    <view style="height:{{height*0.8*0.23}}px; width: 70%;background-color: white;margin: auto auto;margin-top:25rpx;border-radius: 5px;display: flex;flex-direction: column;align-items: center;justify-content: center;">
+
+      <text style="color: #2fcabb;height: 20%;margin-top:10rpx;">汽车的油耗</text>
+      <view style="position:relative;border: 1px solid lightgray;border-radius: 5px;margin-top: 20px;height: 30%;width:80%;display:flex;flex-direction:row;">
+        <input class='size' placeholder-class="sizep" type='digit' bindinput="carYh" placeholder="请输入百公里油耗" />
+        <text style="position:absolute;top:10rpx;right:10rpx;color: black;text-align:right;">L</text>
+      </view>
+      <view style="width:80%;color: lightgray;font-size: 20rpx;text-align: center;margin:auto auto;">*计算汽车能耗需要此参数</view>
+    </view>
+
+    <view style="height:{{height*0.8*0.23}}px; width: 70%;background-color: white;margin: auto auto;margin-top:25rpx;border-radius: 5px;display: flex;flex-direction: column;align-items: center;justify-content: center;">
+
+      <text style="color: #2fcabb;height: 20%;">汽车的月均油费</text>
+      <view style="position:relative;border: 1px solid lightgray;border-radius: 5px;margin-top: 20px;height: 30%;width:80%;display:flex;flex-direction:row;">
+        <input class='size' placeholder-class="sizep" type='digit' bindinput="carYlc" placeholder="请输入月均油费" />
+        <text style="position:absolute;top:10rpx;right:10rpx;color: black;text-align:right;">元</text>
+      </view>
+      <view style="width:80%;color: lightgray;font-size: 20rpx;text-align: center;margin:auto auto;">*计算汽车能耗需要此参数</view>
+    </view>
+
+    <view style="height:{{height*0.8*0.1}}px; width: 70%;background-color: #00bba9;margin: auto auto; margin-top: 35rpx;border-radius: {{height*0.8*0.1*0.5}}px; display:flex;align-items: center;justify-content: center;color: white;" bindtap="stepThreeHandle">下一步</view>
+  </view>
+  <!--家庭用气-->
+  <view wx:if="{{stepThree==true}}" style="height:{{height*0.82}}px;width:100%;background-color: #f8f8f8;">
+    <view style="height: {{height*0.8*0.3}}px; background-color: #eee;">
+
+      <image src="../../public/image/energy_gas.jpg" style="height: 100%; width: 100%;"></image>
+      <view style="height:{{height*0.8*0.1}}px; width: 70%;background-color: white;margin: auto auto; margin-top: -{{height*0.8*0.1*0.6}}px;z-index: 1; color: #2fcabb;display: flex;align-items: center;justify-content: center;border-radius: 5px;position:relative;z-index:1;">家庭用气信息</view>
+    </view>
+
+    <view style="height:{{height*0.8*0.3}}px; width: 70%;background-color: white;margin: auto auto;margin-top:100rpx;border-radius: 5px;display: flex;flex-direction: column;align-items: center;justify-content: center;">
+
+      <text style="color: #2fcabb;height: 20%;margin-top: 30rpx;">燃气费</text>
+      <view style="position:relative;border: 1px solid lightgray;border-radius: 5px;margin-top: 20px;height: 30%;width:80%;display:flex;flex-direction:row;">
+        <input class='size' placeholder-class="sizep" bindinput="iRqf" placeholder="请输入每月燃气费" type='digit' />
+        <text style="position:absolute;top:10rpx;right:10rpx;color: black;text-align:right;">元</text>
+      </view>
+      <view style="width:80%;color: lightgray;font-size: 20rpx;text-align: center;margin:auto auto;">*计算燃气费需要此参数</view>
+    </view>
+
+    <view bindtap="toJny" style="height:{{height*0.8*0.1}}px; width: 70%;background-color: #00bba9;margin: auto auto; margin-top: 30px;border-radius: {{height*0.8*0.1*0.5}}px; display:flex;align-items: center;justify-content: center;color: white;">结论</view>
+  </view>
+
+</scroll-view>
