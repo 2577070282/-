@@ -9,6 +9,8 @@
 
 3、wx-cube-app-develop 这是一款家居智能计算小程序。
 
+4、weapp-wishes-master 这是一款祝福类工具小程序。
+
 
 
 如有其他版权侵权，联系邮箱 gtcarry999@163.com 。
